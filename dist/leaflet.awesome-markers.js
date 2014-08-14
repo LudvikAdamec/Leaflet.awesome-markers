@@ -69,7 +69,7 @@
             var backgroundColorStyle = "; background-color: " + options.backgroundColor;
             var iconFontSizeStyle = "; font-size: " + options.iconFontSize + 'px';
             var borderStyle = "; border: " + options.border;
-            var iconHeightSize = "; height: " + ((options.iconFontSize) * 1.2)+ 'px' + "; width: " + ((options.iconFontSize) * 1.2) + 'px' + "; line-height: " + ((options.iconFontSize) * 1.2) + 'px';
+            var iconHeightSize = "; height: " + ((options.iconFontSize) * 1.2 + 1)+ 'px' + "; width: " + ((options.iconFontSize) * 1.2 + 1) + 'px' + "; line-height: " + ((options.iconFontSize) * 1.2 + 1) + 'px';
             var borderColorStyle = "; border-color: " + options.borderColor + ";'";
 
 
