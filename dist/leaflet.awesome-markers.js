@@ -20,8 +20,8 @@
 
     L.AwesomeMarkers.Icon = L.Icon.extend({
         options: {
-            iconSize: [35, 45],
-            iconAnchor:   [17, 42],
+            iconSize: [30, 30],
+            iconAnchor:   [30, 30],
             popupAnchor: [1, -32],
             shadowAnchor: [10, 12],
             shadowSize: [36, 16],
@@ -30,8 +30,17 @@
             spinClass: 'fa-spin',
             extraClasses: '',
             icon: 'home',
-            markerColor: 'blue',
-            iconColor: 'white'
+            //markerColor: 'blue',
+            iconColor: 'white',
+
+            /* Added by Lu2 */
+            backgroundColor: 'blue',
+            border: '1px solid',
+            borderColor: 'black',
+            showShadow: 'yes',
+
+            iconFontSize: 14
+
         },
 
         initialize: function (options) {
@@ -57,6 +66,12 @@
 
         _createInner: function() {
             var iconClass, iconSpinClass = "", iconColorClass = "", iconColorStyle = "", options = this.options;
+            var backgroundColorStyle = "; background-color: " + options.backgroundColor;
+            var iconFontSizeStyle = "; font-size: " + options.iconFontSize + 'px';
+            var borderStyle = "; border: " + options.border;
+            var iconHeightSize = "; height: " + ((options.iconFontSize) * 1.2)+ 'px' + "; width: " + ((options.iconFontSize) * 1.2) + 'px' + "; line-height: " + ((options.iconFontSize) * 1.2) + 'px';
+            var borderColorStyle = "; border-color: " + options.borderColor + ";'";
+
 
             if(options.icon.slice(0,options.prefix.length+1) === options.prefix + "-") {
                 iconClass = options.icon;
@@ -72,11 +87,11 @@
                 if(options.iconColor === 'white' || options.iconColor === 'black') {
                     iconColorClass = "icon-" + options.iconColor;
                 } else {
-                    iconColorStyle = "style='color: " + options.iconColor + "' ";
+                    iconColorStyle = "color: " + options.iconColor;
                 }
             }
 
-            return "<i " + iconColorStyle + "class='" + options.extraClasses + " " + options.prefix + " " + iconClass + " " + iconSpinClass + " " + iconColorClass + "'></i>";
+            return "<i style = 'border-radius:100px; padding:3px;" + iconColorStyle  + iconHeightSize + iconFontSizeStyle + backgroundColorStyle + borderStyle + borderColorStyle + "class='" + options.extraClasses + " " + options.prefix + " " + iconClass + " " + iconSpinClass + " " + iconColorClass + "'></i>";
         },
 
         _setIconStyles: function (img, name) {
@@ -114,7 +129,7 @@
             return div;
       }
     });
-        
+
     L.AwesomeMarkers.icon = function (options) {
         return new L.AwesomeMarkers.Icon(options);
     };
